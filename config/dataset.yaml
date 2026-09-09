@@ -1,0 +1,9 @@
+dataset:
+  label_column: null
+  positive_labels: []
+  negative_labels: []
+  field_mapping: {}
+  flow_records_confirmed: false
+  assumptions: []
+  label_hints: [label, class, target, category, attack]
+  null_tokens: ['', '-']

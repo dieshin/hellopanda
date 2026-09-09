@@ -1,0 +1,24 @@
+auth:
+  enabled: false
+  users:
+    - {name: administrator, role: admin, token_env: PANDA_ADMIN_TOKEN}
+    - {name: analyst, role: analyst, token_env: PANDA_ANALYST_TOKEN}
+    - {name: observer, role: viewer, token_env: PANDA_VIEWER_TOKEN}
+    - {name: endpoint-sensor, role: sensor, token_env: PANDA_SENSOR_TOKEN}
+live_capture:
+  enabled: false
+  interfaces: []
+  max_seconds: 60
+  max_kib: 16384
+  max_packets: 100000
+endpoint:
+  max_events: 1000
+  match_tolerance_seconds: 5
+  max_correlated_events: 20
+siem:
+  enabled: false
+  format: splunk_hec
+  url: null
+  token_env: SIEM_TOKEN
+  timeout_seconds: 10
+  max_findings: 100

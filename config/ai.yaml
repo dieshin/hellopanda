@@ -1,0 +1,37 @@
+analyst:
+  enabled: false
+  base_url: http://localhost:11434/v1
+  api: chat_completions
+  api_key_env: null
+  model: null
+  response_format: json_schema
+  completion_token_parameter: max_tokens
+  reasoning_effort: null
+  timeout_seconds: 30
+  max_retries: 2
+  max_output_tokens: 2000
+  examples_file: null
+  max_examples: 3
+  max_examples_bytes: 65536
+  include_ip_addresses: false
+  include_domains: false
+  ip_fields: []
+  domain_fields: []
+  safe_numeric_fields: []
+  max_related_findings: 20
+  max_evidence_items: 100
+  automatic_analysis:
+    enabled: false
+    minimum_risk_level: high
+  prompts:
+    system: prompts/analyst_system.md
+    alert_summary: prompts/alert_summary.md
+    investigation: prompts/investigation.md
+    triage: prompts/triage.md
+  recommended_actions:
+    - Review endpoint telemetry.
+    - Review related DNS logs.
+    - Investigate related internal connections.
+    - Verify destination ownership.
+    - Compare with approved applications.
+    - Consider isolation only if organisational policy warrants it.

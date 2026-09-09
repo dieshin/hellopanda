@@ -1,0 +1,22 @@
+app:
+  name: Hello Panda
+  host: 127.0.0.1
+  port: 8000
+  database_url: sqlite:///var/hellopanda.db
+  upload_directory: var/uploads
+  max_upload_bytes: 52428800
+  max_rows: 100000
+  max_columns: 256
+  category_preview_limit: 20
+  page_size: 100
+  max_page_size: 500
+  upload_chunk_bytes: 1048576
+  formats:
+    .csv: csv
+    .tsv: tsv
+    .log: zeek
+    .jsonl: jsonl
+    .ndjson: jsonl
+    .pcap: capture
+    .pcapng: capture
+  allowed_hosts: [127.0.0.1, localhost, testserver]

@@ -1,0 +1,12 @@
+model:
+  corpus: ../../datasets/training/labelled-flows.csv
+  directory: var/models
+  threshold: 0.5
+  n_estimators: 200
+  max_depth: 8
+  min_samples_leaf: 2
+  random_state: 42
+capture:
+  max_packets: 1000000
+  max_flows: 100000
+  timeout_seconds: 120

@@ -1,0 +1,3 @@
+# Populate only after inspecting the supplied dataset. No inferred feature selection.
+features: {}
+missing_feature_policy: error

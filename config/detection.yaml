@@ -1,0 +1,85 @@
+version: 1
+behaviour_aggregation: maximum
+rules:
+  regular_connections:
+    enabled: true
+    detector: periodicity
+    severity: suspicious
+    score: 60
+    parameters:
+      group_fields:
+      - src_ip
+      - dst_ip
+      - dst_port
+      - protocol
+      time_field: timestamp
+      time_unit: s
+      minimum_connections: 5
+      maximum_coefficient_variation: 0.15
+  rare_destination:
+    enabled: true
+    detector: rare_destination
+    severity: suspicious
+    score: 50
+    parameters:
+      minimum_hosts: 10
+      maximum_host_fraction: 0.1
+  similar_flows:
+    enabled: true
+    detector: similar_flows
+    severity: suspicious
+    score: 50
+    parameters:
+      group_fields:
+      - src_ip
+      - dst_ip
+      - dst_port
+      - protocol
+      measure_fields:
+      - packets
+      - src_bytes
+      - dst_bytes
+      minimum_connections: 5
+      maximum_coefficient_variation: 0.1
+  dns_tunnel:
+    enabled: true
+    detector: dns_tunnel
+    severity: suspicious
+    score: 50
+    parameters:
+      window_seconds: 300
+      minimum_queries: 30
+      minimum_unique_names: 20
+      minimum_name_length: 60
+      minimum_label_entropy: 3.5
+detectors:
+  periodicity:
+    required_parameters:
+    - group_fields
+    - time_field
+    - time_unit
+    - minimum_connections
+    - maximum_coefficient_variation
+  ratio_outlier:
+    required_parameters:
+    - numerator
+    - denominator
+    - percentile
+    - baseline_confirmation_id
+  rare_destination:
+    required_parameters:
+    - minimum_hosts
+    - maximum_host_fraction
+  similar_flows:
+    required_parameters:
+    - group_fields
+    - measure_fields
+    - minimum_connections
+    - maximum_coefficient_variation
+  dns_tunnel:
+    required_parameters:
+    - window_seconds
+    - minimum_queries
+    - minimum_unique_names
+    - minimum_name_length
+    - minimum_label_entropy

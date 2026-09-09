@@ -1,0 +1,16 @@
+version: 1
+risk:
+  enabled: false
+  formula: weighted_mean
+  scale: 100
+  required_components: [ml, behaviour, context]
+  weights:
+    ml: 0.50
+    behaviour: 0.30
+    context: 0.20
+  levels:
+    - {name: low, minimum: 0}
+    - {name: suspicious, minimum: 30}
+    - {name: high, minimum: 60}
+    - {name: critical, minimum: 80}
+# Example policy only; not calibrated or enabled.
